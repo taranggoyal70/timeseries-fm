@@ -1,0 +1,102 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+ENV/
+env/
+
+# Data files
+data/
+*.csv
+*.parquet
+*.h5
+*.hdf5
+
+# Results and outputs
+results/
+outputs/
+experiments/
+*.png
+*.jpg
+*.jpeg
+*.pdf
+
+# Model weights and cache
+models/
+.cache/
+*.pt
+*.pth
+*.ckpt
+checkpoints/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# Node.js / Frontend
+node_modules/
+.next/
+out/
+.vercel/
+.turbo/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.production.local
+.env.development.local
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Documentation that's not for publication
+COMPLETED_TASKS.md
+PROJECT_SUMMARY.md
+VERIFICATION_CHECKLIST.md
+WEB_APP_SETUP.md
+START_SERVERS.md
+quick_setup.py
+create_sample_results.py
