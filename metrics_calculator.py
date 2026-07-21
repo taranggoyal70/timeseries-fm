@@ -28,11 +28,32 @@ class MetricsCalculator:
         return float(np.mean(np.abs((actual[mask] - predicted[mask]) / actual[mask])) * 100)
 
     @staticmethod
+    def calculate_mae(actual, predicted):
+        """Calculate Mean Absolute Error: 1/m * sum(|x-y|)."""
+        return float(np.mean(np.abs(actual - predicted)))
+
+    @staticmethod
+    def calculate_smape(actual, predicted):
+        """
+        Symmetric MAPE: 1/m * sum(2*|x-y| / (|x|+|y|)) * 100.
+
+        Unlike MAPE, sMAPE stays finite when actuals approach zero, so it is a
+        more robust percentage error for the rate series in this study.
+        """
+        denominator = np.abs(actual) + np.abs(predicted)
+        mask = denominator != 0
+        if not mask.any():
+            return 0.0
+        return float(np.mean(2 * np.abs(predicted[mask] - actual[mask]) / denominator[mask]) * 100)
+
+    @staticmethod
     def calculate_all_metrics(actual, predicted):
-        """Calculate both RMSE and MAPE"""
+        """Calculate RMSE, MAPE, MAE, and sMAPE."""
         return {
             'rmse': MetricsCalculator.calculate_rmse(actual, predicted),
-            'mape': MetricsCalculator.calculate_mape(actual, predicted)
+            'mape': MetricsCalculator.calculate_mape(actual, predicted),
+            'mae': MetricsCalculator.calculate_mae(actual, predicted),
+            'smape': MetricsCalculator.calculate_smape(actual, predicted)
         }
 
     @staticmethod
